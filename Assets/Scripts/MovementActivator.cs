@@ -24,4 +24,16 @@ public class MovementActivator : MonoBehaviour
         objectToActivate.GetComponent<MoveObject>().enabled = true;
         Debug.Log("collided");
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        objectToActivate.GetComponent<MoveObject>().enabled = false;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        objectToActivate.GetComponent<MoveObject>().enabled = true;
+        Debug.Log("collided");
+    }
+
 }

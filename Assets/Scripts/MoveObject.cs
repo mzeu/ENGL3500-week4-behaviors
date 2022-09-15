@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    float moveSpeed;
+    [SerializeField] float moveSpeed;
     [SerializeField] Vector3 moveDirection;
 
-    [SerializeField] GameObject stationarySphere;
+    [SerializeField] GameObject doorLeft;
 
     [SerializeField] float totalMoveDistance;
     Vector3 startingLocation;   
 
     void Start()
     {
-        moveSpeed = .43f;
         totalMoveDistance = 10f;
         startingLocation = gameObject.transform.position;
     }
@@ -23,7 +22,7 @@ public class MoveObject : MonoBehaviour
     {
         float distanceTraveled = GetDistanceTraveled();
 
-        if (distanceTraveled > totalMoveDistance)
+        if (distanceTraveled > totalMoveDistance | distanceTraveled == 0f)
         {
             FlipMoveDirection();
         }
